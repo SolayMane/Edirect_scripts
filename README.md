@@ -9,4 +9,4 @@ LT906355.1      Fusarium oxysporum MN25 NRRL54003
 
 
 # download all ericla genomes from ncbi
-wget `esearch -db assembly -query "ericales[orgn] AND latest[filter]" | efetch -format docsum | xtract -pattern DocumentSummary -element FtpPath_GenBank`
+wget `esearch -db assembly -query "ericales[orgn] AND latest[filter]" | efetch -format docsum | xtract -pattern DocumentSummary -element FtpPath_GenBank | awk -F"/" '{print $0"/"$NF"_genomic.fna.gz"}'`

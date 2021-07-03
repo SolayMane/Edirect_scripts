@@ -112,5 +112,5 @@ esearch -db assembly -query "argania spinosa[orgn] AND latest[filter]" | efetch 
 </DocumentSummarySet>
 
 # now we will target ftppath_genbank element in docusum
-
+# you can replace ericales by the name of your species/genus de download thier genomes
 wget `esearch -db assembly -query "ericales[orgn] AND latest[filter]" | efetch -format docsum | xtract -pattern DocumentSummary -element FtpPath_GenBank | awk -F"/" '{print $0"/"$NF"_genomic.fna.gz"}'`
